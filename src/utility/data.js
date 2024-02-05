@@ -1,5 +1,4 @@
 import WomenDenim from '../assets/img/women-1.jpeg';
-import WomenHeels from '../assets/img/women-2.jpeg';
 
 export const recentPosts = [
     {
@@ -13,17 +12,17 @@ export const recentPosts = [
         description:
             'Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.',
     },
-    {
-        id: 2,
-        title: "Women's classic Heels - Lemon",
-        href: '#',
-        date: 'Mar 10, 2023',
-        datetime: '2023-03-10',
-        category: { title: 'footwear', href: '#' },
-        imageUrl: WomenHeels, // Corrected the path here
-        description:
-            'Optio cum necessitatibus dolor voluptatum provident commodi et.',
-    },
+    // {
+    //     id: 2,
+    //     title: "Women's classic Heels - Lemon",
+    //     href: '#',
+    //     date: 'Mar 10, 2023',
+    //     datetime: '2023-03-10',
+    //     category: { title: 'footwear', href: '#' },
+    //     imageUrl: WomenHeels, // Corrected the path here
+    //     description:
+    //         'Optio cum necessitatibus dolor voluptatum provident commodi et.',
+    // },
 ];
 export const womenCategories = [
     {
@@ -129,7 +128,21 @@ export const womenCategories = [
             },
         ],
     },
-
+    {
+        id: 6,
+        category: 'saree',
+        subcategories: [],
+    },
+    {
+        id: 7,
+        category: 'abaya',
+        subcategories: [],
+    },
+    {
+        id: 8,
+        category: 'personal care',
+        subcategories: [],
+    },
     {
         id: 5,
         category: 'accessories',
@@ -168,20 +181,5 @@ export const womenCategories = [
                 href: '#',
             },
         ],
-    },
-    {
-        id: 6,
-        category: 'saree',
-        subcategories: [],
-    },
-    {
-        id: 7,
-        category: 'abaya',
-        subcategories: [],
-    },
-    {
-        id: 8,
-        category: 'personal care',
-        subcategories: [],
     },
 ];

@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // import Logo from '../assets/img/logo.png';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import Logo from '../assets/img/logo7.png';
 import { recentPosts, womenCategories } from '../utility/data';
 
 export default function Megamenu() {
+    // const [catItems, setCatItems] = useState([...womenCategories]);
+    const [cartItems, setCartItems] = useState([...womenCategories]);
+
+    useEffect(() => {
+        cartItems.forEach((item) => {
+            console.log(
+                `Length of subcategories for item with id ${item.id}: ${item.subcategories.length}`
+            );
+        });
+    }, [cartItems]);
     return (
         <>
             <nav className='bg-white border-gray-200 '>
@@ -108,40 +118,59 @@ export default function Megamenu() {
                     id='mega-menu-full-image-dropdown'
                     className='mt-1 bg-white border-gray-200 shadow-sm border-y '
                 >
-                    <div className='grid gap-4 max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-600 md:grid-cols-4 md:px-6'>
-                        <div className='col-span-3 flex gap-4 justify-between flex-wrap'>
-                            {womenCategories.map((item) => (
-                                <div key={item.id} className='min-content'>
-                                    <a
-                                        href='#'
-                                        className='max-w-xl flex items-center gap-2 mb-5 font-semibold leading-tight tracking-tight capitalize text-black'
-                                    >
-                                        {item.category}
-                                        <span className=''>
-                                            <HiOutlineArrowLongRight className='mt-0.5 text-xl' />
-                                        </span>
-                                    </a>
-                                    {item.subcategories.length > 0 && (
-                                        <ul
-                                            className='hidden mb-4 space-y-4 md:mb-0 md:block h-auto'
-                                            aria-labelledby='mega-menu-full-image-button'
-                                        >
-                                            {item.subcategories.map(
-                                                (category) => (
-                                                    <li className='flex'>
+                    <div className='grid grid-cols-4 grid-rows-3 gap-4 max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-600  md:px-6'>
+                        <div className='col-span-3'>
+                            <ul
+                                className={cartItems
+                                    .map((item) =>
+                                        item.subcategories.length === 0
+                                            ? 'block'
+                                            : 'grid grid-cols-4'
+                                    )
+                                    .join(' ')}
+                                aria-labelledby='mega-menu-full-image-button'
+                            >
+                                {womenCategories.map((item) => (
+                                    <>
+                                        {item.subcategories.length !== 0 ? (
+                                            <li key={item.id} className=''>
+                                                <a
+                                                    href='#'
+                                                    className='flex items-center gap-2 mb-5 font-semibold leading-tight tracking-tight capitalize text-black'
+                                                >
+                                                    {item.category}
+                                                    <span className='flex'>
+                                                        <HiOutlineArrowLongRight className='mt-0.5 text-xl' />
+                                                    </span>
+                                                </a>
+                                                {item.subcategories.map(
+                                                    (category) => (
                                                         <a
+                                                            key={category.title}
                                                             href='#'
                                                             className='hover:underline hover:text-blue-600 block dark:hover:text-blue-500'
                                                         >
                                                             {category.title}
                                                         </a>
-                                                    </li>
-                                                )
-                                            )}
-                                        </ul>
-                                    )}
-                                </div>
-                            ))}
+                                                    )
+                                                )}
+                                            </li>
+                                        ) : (
+                                            <li key={item.id} className=''>
+                                                <a
+                                                    href='#'
+                                                    className='flex items-center gap-2 mb-5 font-semibold leading-tight tracking-tight capitalize text-black'
+                                                >
+                                                    {item.category}
+                                                    <span className='flex'>
+                                                        <HiOutlineArrowLongRight className='mt-0.5 text-xl' />
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        )}
+                                    </>
+                                ))}
+                            </ul>
                         </div>
 
                         {/* <ul className='mb-4 space-y-4 md:mb-0'>
@@ -178,28 +207,29 @@ export default function Megamenu() {
                                 </a>
                             </li>
                         </ul> */}
-                        <div className='col-span-1 grid gap-4 grid-cols-2'>
+                        <div className='col-span-1 grid gap-4 grid-cols-1'>
                             {/* <div className='grid grid-cols-2'></div> */}
                             {recentPosts.map((post) => (
                                 <a
                                     key={post.id}
                                     href='#'
-                                    className='p-8 bg-local bg-gray-500 bg-center bg-no-repeat bg-cover rounded-lg bg-blend-multiply hover:bg-blend-soft-light dark:hover:bg-blend-difference duration-300 transition-all bg-url()]'
-                                    style={{
-                                        backgroundImage: `url(${post.imageUrl})`,
-                                    }}
+                                    className='p-8 bg-local  bg-center bg-no-repeat bg-cover rounded-lg bg-blend-multiply hover:bg-blend-soft-light dark:hover:bg-blend-difference duration-300 transition-all bg-url()]'
+                                    // style={{
+                                    //     backgroundImage: `url(${post.imageUrl})`,
+                                    // }}
                                 >
-                                    <p className='max-w-xl mb-5 font-extrabold leading-tight tracking-tight capitalize text-white'>
+                                    <img src={post.imageUrl} alt={post.title} />
+                                    <p className='max-w-xl mb-5 font-extrabold leading-tight tracking-tight capitalize text-black'>
                                         {post.title}
                                     </p>
-                                    <p className='max-w-xl mb-5 font-normal  leading-tight tracking-tight capitalize text-white'>
+                                    <p className='max-w-xl mb-5 font-normal  leading-tight tracking-tight capitalize text-black'>
                                         <span className='border mr-2 px-1.5 py-0.5 rounded-sm'>
                                             {post.category.title}
                                         </span>
                                     </p>
                                     <button
                                         type='button'
-                                        className='inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-center text-white border border-white rounded-lg hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700'
+                                        className='inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-center text-black border border-white rounded-lg hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700'
                                     >
                                         Buy Now
                                         <svg
@@ -227,12 +257,12 @@ export default function Megamenu() {
                             className='p-8 bg-local bg-gray-500 bg-center bg-no-repeat bg-cover rounded-lg bg-blend-multiply hover:bg-blend-soft-light dark:hover:bg-blend-darken bg-url()]'
                             style={{ backgroundImage: `url(${MenuImg})` }}
                         >
-                            <p className='max-w-xl mb-5 font-extrabold leading-tight tracking-tight text-white'>
+                            <p className='max-w-xl mb-5 font-extrabold leading-tight tracking-tight text-black'>
                                 Preview the new Flowbite dashboard navigation.
                             </p>
                             <button
                                 type='button'
-                                className='inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-center text-white border border-white rounded-lg hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700'
+                                className='inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-center text-black border border-white rounded-lg hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700'
                             >
                                 Get started
                                 <svg
