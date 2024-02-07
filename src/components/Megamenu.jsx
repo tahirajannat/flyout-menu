@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-// ... other imports
+import React, { useEffect, useState } from 'react';
 import { mainMenuItems } from '../utility/data';
 import MainMenuItems from './menuitems/MainMenuItems';
 import SubMenu from './menuitems/SubMenu';
@@ -7,116 +6,59 @@ import SubMenu from './menuitems/SubMenu';
 export default function Megamenu() {
     const [hoveredMainMenuItem, setHoveredMainMenuItem] = useState(false);
     const [isSubMenuVisible, setIsSubMenuVisible] = useState(false);
-    const [active, setActive] = useState(false);
-    const resetTimeoutRef = useRef(null);
 
-    // useEffect(() => {
-    //     return () => {
-    //         if (resetTimeoutRef.current) {
-    //             clearTimeout(resetTimeoutRef.current);
-    //         }
-    //     };
-    // }, []);
-
-    // const handleMouseEnter = () => {
-    //     clearTimeout(resetTimeoutRef.current);
-    //     setHoveredMainMenuItem(true);
-    // };
-
-    // const handleMouseLeave = () => {
-    //     clearTimeout(resetTimeoutRef.current);
-    //     resetTimeoutRef.current = setTimeout(() => {
-    //         setHoveredMainMenuItem(false);
-    //         if (isSubMenuVisible) {
-    //             setHoveredMainMenuItem(true);
-    //         }
-    //     }, 500); // Adjust the delay time as needed
-    // };
-    // const handleSubMenuMouseEnter = () => {
-    //     clearTimeout(resetTimeoutRef.current);
-    //     if (hoveredMainMenuItem) {
-    //         setIsSubMenuVisible(true);
-    //     }
-    //     clearTimeout(resetTimeoutRef.current);
-    // };
-
-    // const handleSubMenuMouseLeave = () => {
-    //     clearTimeout(resetTimeoutRef.current);
-    //     resetTimeoutRef.current = setTimeout(() => {
-    //         setHoveredMainMenuItem(false);
-    //         setIsSubMenuVisible(false);
-    //         if (hoveredMainMenuItem) {
-    //             setHoveredMainMenuItem(false);
-    //             setHoveredMainMenuItem(false);
-    //         }
-    //     });
-    // };
     useEffect(() => {
-        setActive(hoveredMainMenuItem);
-        handleSubMenuMouseEnter();
-        handleSubMenuMouseLeave();
-    }, [active]);
+        if (hoveredMainMenuItem) {
+            setIsSubMenuVisible(true);
+        } else {
+            const timeout = setTimeout(() => {
+                setIsSubMenuVisible(false);
+            }, 3000); // Adjust the delay time for the animation
+            return () => clearTimeout(timeout);
+        }
+    }, [hoveredMainMenuItem]);
 
     const handleMouseEnter = () => {
         setHoveredMainMenuItem(true);
+        handleOnChange();
     };
+
     const handleMouseLeave = () => {
         setHoveredMainMenuItem(false);
     };
-    const handleSubMenuMouseEnter = () => {
-        if (!active) {
-            setHoveredMainMenuItem(true);
-            setIsSubMenuVisible(true);
-        }
+    const [selectedId, setSelectedId] = useState();
+
+    const handleOnChange = (event) => {
+        event.preventDefault();
+        let id = event.target.id;
+        setSelectedId(id);
     };
-    const handleSubMenuMouseLeave = () => {
-        if (!active) {
-            setHoveredMainMenuItem(false);
-            setIsSubMenuVisible(false);
-        }
-    };
-    console.log(active);
+
+    console.log('selectedId', selectedId);
+
     return (
         <>
             <nav className='bg-white'>
-                {/* <MainMenuItems
-                    parentMenuItems={mainMenuItems}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    hoveredMainMenuItem={hoveredMainMenuItem}
-                />
-                {hoveredMainMenuItem ? (
-                    <SubMenu
-                        classes={'transition-all duration-300'}
-                        subMenuItems={mainMenuItems}
-                        isHovered={hoveredMainMenuItem}
-                        onMouseEnter={handleSubMenuMouseEnter}
-                        onMouseLeave={handleSubMenuMouseLeave}
-                    />
-                ) : isSubMenuVisible ? (
-                    <SubMenu
-                        subMenuItems={mainMenuItems}
-                        isHovered={isSubMenuVisible}
-                        // isHovered={hoveredMainMenuItem}
-                        onMouseEnter={handleSubMenuMouseEnter}
-                        onMouseLeave={handleSubMenuMouseLeave}
-                    />
-                ) : (
-                    !hoveredMainMenuItem && null
-                )} */}
                 <MainMenuItems
+                    menuItemStyle={'capitalize'}
                     parentMenuItems={mainMenuItems}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    hoveredMainMenuItem={hoveredMainMenuItem}
+                    onChange={handleOnChange}
+                    selectedId={selectedId}
+                    hoveredMainMenuItem={
+                        mainMenuItems.length > 0 ? mainMenuItems[0].id : null
+                    }
                 />
+
                 {hoveredMainMenuItem && (
                     <SubMenu
                         classes={'transition-all duration-300'}
                         subMenuItems={mainMenuItems}
-                        isHovered={active}
-                        onMouseEnter={handleSubMenuMouseEnter}
-                        onMouseLeave={handleSubMenuMouseLeave}
+                        isHovered={isSubMenuVisible}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        onChange={handleOnChange}
                     />
                 )}
             </nav>

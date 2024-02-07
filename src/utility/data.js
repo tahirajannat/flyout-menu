@@ -70,13 +70,13 @@ export const mainMenuItems = [
                 ],
             },
             {
-                id: 8,
+                id: 4,
                 category: 'personal care',
                 subcategories: [],
             },
 
             {
-                id: 3,
+                id: 5,
                 category: ' western & fusion',
                 subcategories: [
                     {
@@ -102,12 +102,12 @@ export const mainMenuItems = [
                 ],
             },
             {
-                id: 7,
+                id: 5,
                 category: 'abaya',
                 subcategories: [],
             },
             {
-                id: 4,
+                id: 6,
                 category: 'footwear',
                 subcategories: [
                     {
@@ -129,7 +129,7 @@ export const mainMenuItems = [
                 ],
             },
             {
-                id: 5,
+                id: 7,
                 category: 'accessories',
                 subcategories: [
                     {
@@ -168,7 +168,7 @@ export const mainMenuItems = [
                 ],
             },
             {
-                id: 6,
+                id: 8,
                 category: 'saree',
                 subcategories: [],
             },
@@ -219,161 +219,161 @@ export const recentPosts = [
     //         'Optio cum necessitatibus dolor voluptatum provident commodi et.',
     // },
 ];
-export const womenCategories = [
-    {
-        id: 1,
-        category: 'Ethnic wear',
-        subcategories: [
-            {
-                title: 'Ethnic 1 Piece',
-                href: '#',
-            },
-            {
-                title: 'Ethnic Sets',
-                href: '#',
-            },
-            {
-                title: 'Semi-Formals',
-                href: '#',
-            },
-            {
-                title: 'Formals',
-                href: '#',
-            },
-        ],
-    },
+// export const womenCategories = [
+//     {
+//         id: 1,
+//         category: 'Ethnic wear',
+//         subcategories: [
+//             {
+//                 title: 'Ethnic 1 Piece',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Ethnic Sets',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Semi-Formals',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Formals',
+//                 href: '#',
+//             },
+//         ],
+//     },
 
-    {
-        id: 2,
-        category: 'Pants',
-        subcategories: [
-            {
-                title: 'Jeans',
-                href: '#',
-            },
-            {
-                title: 'Twill Pants',
-                href: '#',
-            },
-            {
-                title: 'Palazzo',
-                href: '#',
-            },
-            {
-                title: 'Plain Bottoms',
-                href: '#',
-            },
-            {
-                title: 'Embroidered Bottoms',
-                href: '#',
-            },
-            {
-                title: 'Leggings',
-                href: '#',
-            },
-        ],
-    },
-    {
-        id: 8,
-        category: 'personal care',
-        subcategories: [],
-    },
+//     {
+//         id: 2,
+//         category: 'Pants',
+//         subcategories: [
+//             {
+//                 title: 'Jeans',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Twill Pants',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Palazzo',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Plain Bottoms',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Embroidered Bottoms',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Leggings',
+//                 href: '#',
+//             },
+//         ],
+//     },
+//     {
+//         id: 8,
+//         category: 'personal care',
+//         subcategories: [],
+//     },
 
-    {
-        id: 3,
-        category: ' western & fusion',
-        subcategories: [
-            {
-                title: 'Women’s Shirt',
-                href: '#',
-            },
-            {
-                title: 'Tops & T-Shirts',
-                href: '#',
-            },
-            {
-                title: 'Gown',
-                href: '#',
-            },
-            {
-                title: 'Jump Suit',
-                href: '#',
-            },
-            {
-                title: 'Shrug',
-                href: '#',
-            },
-        ],
-    },
-    {
-        id: 7,
-        category: 'abaya',
-        subcategories: [],
-    },
-    {
-        id: 4,
-        category: 'footwear',
-        subcategories: [
-            {
-                title: 'Jutties',
-                href: '#',
-            },
-            {
-                title: 'Mules',
-                href: '#',
-            },
-            {
-                title: 'Sandals',
-                href: '#',
-            },
-            {
-                title: 'Slippers',
-                href: '#',
-            },
-        ],
-    },
-    {
-        id: 5,
-        category: 'accessories',
-        subcategories: [
-            {
-                title: 'Scarfs/Dupatta',
-                href: '#',
-            },
-            {
-                title: 'Hand Bag',
-                href: '#',
-            },
-            {
-                title: 'Earring',
-                href: '#',
-            },
+//     {
+//         id: 3,
+//         category: ' western & fusion',
+//         subcategories: [
+//             {
+//                 title: 'Women’s Shirt',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Tops & T-Shirts',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Gown',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Jump Suit',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Shrug',
+//                 href: '#',
+//             },
+//         ],
+//     },
+//     {
+//         id: 7,
+//         category: 'abaya',
+//         subcategories: [],
+//     },
+//     {
+//         id: 4,
+//         category: 'footwear',
+//         subcategories: [
+//             {
+//                 title: 'Jutties',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Mules',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Sandals',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Slippers',
+//                 href: '#',
+//             },
+//         ],
+//     },
+//     {
+//         id: 5,
+//         category: 'accessories',
+//         subcategories: [
+//             {
+//                 title: 'Scarfs/Dupatta',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Hand Bag',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Earring',
+//                 href: '#',
+//             },
 
-            {
-                title: 'Necklace',
-                href: '#',
-            },
-            {
-                title: ' Finger Ring',
-                href: '#',
-            },
-            {
-                title: 'Hair Clip',
-                href: '#',
-            },
-            {
-                title: 'Bangles',
-                href: '#',
-            },
-            {
-                title: 'Socks',
-                href: '#',
-            },
-        ],
-    },
-    {
-        id: 6,
-        category: 'saree',
-        subcategories: [],
-    },
-];
+//             {
+//                 title: 'Necklace',
+//                 href: '#',
+//             },
+//             {
+//                 title: ' Finger Ring',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Hair Clip',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Bangles',
+//                 href: '#',
+//             },
+//             {
+//                 title: 'Socks',
+//                 href: '#',
+//             },
+//         ],
+//     },
+//     {
+//         id: 6,
+//         category: 'saree',
+//         subcategories: [],
+//     },
+// ];
