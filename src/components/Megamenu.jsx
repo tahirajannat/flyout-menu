@@ -3,6 +3,7 @@ import { mainMenuItems } from '../utility/data';
 import MainMenuItems from './menuitems/MainMenuItems';
 import SubMenu from './menuitems/SubMenu';
 import SaleTemplate from './templates/SaleTemplate';
+import TemplateTwo from './templates/TemplateTwo';
 
 export default function Megamenu() {
     const [hoveredMainMenuItem, setHoveredMainMenuItem] = useState(false);
@@ -52,7 +53,7 @@ export default function Megamenu() {
 
                 {hoveredMainMenuItem && (
                     <>
-                        {selectedId == 4 ? (
+                        {selectedId == 5 ? (
                             <SubMenu
                                 classes={'transition-all duration-300'}
                                 subMenuItems={mainMenuItems}
@@ -61,8 +62,23 @@ export default function Megamenu() {
                                 onMouseLeave={handleMouseLeave}
                                 selectedId={selectedId}
                             />
-                        ) : (
+                        ) : selectedId == 4 ? (
                             <SaleTemplate isHovered={isSubMenuVisible} />
+                        ) : selectedId == 9 ? (
+                            <TemplateTwo
+                                subMenuItems={mainMenuItems}
+                                isHovered={isSubMenuVisible}
+                                selectedId={selectedId}
+                            />
+                        ) : (
+                            <SubMenu
+                                classes={'transition-all duration-300'}
+                                subMenuItems={mainMenuItems}
+                                isHovered={isSubMenuVisible}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                                selectedId={selectedId}
+                            />
                         )}
                     </>
                 )}

@@ -1,5 +1,7 @@
 import WomenDenim from '../assets/img/women-1.jpeg';
 import WomenHeels from '../assets/img/women-2.jpeg';
+import WomenBags from '../assets/img/women-3.jpeg';
+import WomenTrendyBags from '../assets/img/women-4.jpeg';
 export const mainMenuItems = [
     {
         id: 1,
@@ -318,14 +320,14 @@ export const mainMenuItems = [
 export const recentPosts = [
     {
         id: 1,
-        title: "Women's Ethnic Denim Jacket",
+        title: "Women's Trendy Bag- white",
         href: '#',
         date: 'Mar 16, 2023',
         price: 199,
         sellPrice: 149,
         datetime: '2023-03-16',
         category: { title: 'clothing', href: '#' },
-        imageUrl: WomenDenim,
+        imageUrl: WomenTrendyBags,
         description:
             'Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.',
     },
@@ -342,6 +344,19 @@ export const recentPosts = [
     },
     {
         id: 3,
+        title: "Women's Leather Bag- brown",
+        href: '#',
+        date: 'Mar 16, 2023',
+        price: 199,
+        sellPrice: 149,
+        datetime: '2023-03-16',
+        category: { title: 'clothing', href: '#' },
+        imageUrl: WomenBags,
+        description:
+            'Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.',
+    },
+    {
+        id: 4,
         title: "Women's Ethnic Denim Jacket",
         href: '#',
         date: 'Mar 16, 2023',

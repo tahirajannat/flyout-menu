@@ -1,61 +1,66 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { mainMenuItems } from '../../utility/data';
-import MenuFeaturedProduct from '../menuitems/MenuFeaturedProduct';
-import SubmenuTemplateTwo from './SubmenuTemplateTwo';
+import TemplateTwoFeatured from '../featuredProduct/TemplateTwoFeatured';
+import SubMenuColumn from '../menuitems/SubMenuColumn';
 
-export default function TemplateTwo() {
-    const [hoveredMainMenuItem, setHoveredMainMenuItem] = useState(false);
-    const [isSubMenuVisible, setIsSubMenuVisible] = useState(false);
-
-    useEffect(() => {
-        if (hoveredMainMenuItem) {
-            setIsSubMenuVisible(true);
-        } else {
-            const timeout = setTimeout(() => {
-                setIsSubMenuVisible(false);
-            }, 3000); // Adjust the delay time for the animation
-            return () => clearTimeout(timeout);
-        }
-    }, [hoveredMainMenuItem]);
-
-    const handleMouseEnter = () => {
-        setHoveredMainMenuItem(true);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredMainMenuItem(false);
-    };
-    const [selectedId, setSelectedId] = useState();
-
-    const handleMouseOver = (event) => {
-        setSelectedId(JSON.parse(event.target.dataset.info));
-        // console.log(JSON.parse(event.target.dataset.info));
-    };
+export default function TemplateTwo({
+    isHovered,
+    onMouseEnter,
+    onMouseLeave,
+    classes,
+    selectedId,
+}) {
     return (
-        <div className='mx-auto max-w-screen-xl'>
-            <div className='w-full grid grid-cols-12'>
-                <div className='col-span-6'>
-                    <MenuFeaturedProduct
-                        classes={' grid grid-cols-2'}
-                        startIndex={0}
-                        endIndex={2}
+        <div
+            // className='absolute mx-auto max-w-screen-xl'
+            className={`-mt-1 absolute w-full bg-white border border-gray-200 rounded-md shadow-lg z-10 ${
+                isHovered
+                    ? 'visible transition-all duration-300'
+                    : 'visible transition-all duration-300'
+            } ${classes}`}
+        >
+            <div className='w-full grid grid-cols-12 gap-8 max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-600 md:px-6'>
+                <div className='col-span-3 '>
+                    {mainMenuItems.map((item) => (
+                        <h2 key={item.id}>
+                            {item.id == selectedId && item.title}
+                        </h2>
+                    ))}
+
+                    <TemplateTwoFeatured
+                        classes={' grid grid-cols-2 gap-4 grid-flow-row'}
+                        selectedId={selectedId}
+                        // startIndex={0}
+                        // endIndex={2}
                     />
                 </div>
-                <div className='col-span-6'>
-                    <div className='grid grid-cols-2 pr-4'>
-                        <SubmenuTemplateTwo
-                            mainMenuItems={mainMenuItems}
-                            selectedId={5}
-                            startIndex={0}
-                            endIntex={3}
-                        />
-                        <SubmenuTemplateTwo
+                <div className='col-span-9'>
+                    <div className='grid grid-cols-2 gap-8 pr-4'>
+                        <div>
+                            <SubMenuColumn
+                                classes={'border-r'}
+                                mainMenuItems={mainMenuItems}
+                                selectedId={selectedId}
+                                startIndex={0}
+                                endIntex={1}
+                            />
+                        </div>
+                        <div>
+                            <SubMenuColumn
+                                classes={' '}
+                                mainMenuItems={mainMenuItems}
+                                selectedId={selectedId}
+                                startIndex={1}
+                                endIntex={2}
+                            />
+                        </div>
+                        {/* <SubmenuTemplateTwo
                             borderStyle={'border-l pl-8'}
                             mainMenuItems={mainMenuItems}
-                            selectedId={5}
+                            selectedId={9}
                             startIndex={0}
                             endIntex={3}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>
