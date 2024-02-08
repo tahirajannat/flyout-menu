@@ -8,6 +8,7 @@ export default function SaleTemplate({
     onMouseEnter,
     onMouseLeave,
     classes,
+    selectedId,
 }) {
     return (
         <div
@@ -18,25 +19,29 @@ export default function SaleTemplate({
                     : 'hidden transition-all duration-300'
             } ${classes}`}
         >
-            <div className='w-full grid grid-cols-10 gap-8 max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-600 md:px-6'>
+            <div
+                className='w-full grid grid-cols-10 gap-8 max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-600 md:px-6'
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+            >
                 <div className='col-span-4'>
                     <div className='grid grid-cols-2 gap-8 pr-4'>
                         <div>
                             <SubMenuColumn
                                 classes={'border-r'}
                                 mainMenuItems={mainMenuItems}
-                                selectedId={9}
+                                selectedId={selectedId}
                                 startIndex={0}
-                                endIntex={1}
+                                endIndex={1}
                             />
                         </div>
                         <div>
                             <SubMenuColumn
                                 classes={' '}
                                 mainMenuItems={mainMenuItems}
-                                selectedId={9}
+                                selectedId={selectedId}
                                 startIndex={1}
-                                endIntex={2}
+                                endIndex={2}
                             />
                         </div>
                         {/* <SubmenuTemplateTwo
@@ -50,9 +55,9 @@ export default function SaleTemplate({
                 </div>
                 <div className='col-span-6'>
                     <SaleFeatured
-                    // classes={' grid grid-cols-2'}
-                    // startIndex={0}
-                    // endIndex={2}
+                        classes={'grid gap-6 grid-cols-3'}
+                        // startIndex={0}
+                        endIntex={3}
                     />
                 </div>
             </div>

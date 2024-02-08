@@ -4,7 +4,7 @@ export default function SubMenuColumn({
     mainMenuItems,
     selectedId,
     startIndex,
-    endIntex,
+    endIndex,
     classes,
 }) {
     // const firstThree = mainMenuItems.slice(0, 3);
@@ -17,16 +17,15 @@ export default function SubMenuColumn({
         <>
             {mainMenuItems.map((item) => (
                 <div key={item.id}>
-                    {item.id === selectedId ? (
+                    {item.id === selectedId && item.submenu ? (
                         <div className=''>
                             <div className='mb-5'>
                                 <ul className='capitalize text-black '>
                                     {item.submenu
-                                        .slice(startIndex, endIntex)
+                                        .slice(startIndex, endIndex)
                                         .map((subItem) => (
-                                            <>
+                                            <div key={subItem.id}>
                                                 <li
-                                                    key={subItem.id}
                                                     className={`my-2 ${classes}`}
                                                 >
                                                     <a
@@ -65,7 +64,7 @@ export default function SubMenuColumn({
                                                         ) : null}
                                                     </ul>
                                                 </li>
-                                            </>
+                                            </div>
                                         ))}
                                 </ul>
                             </div>

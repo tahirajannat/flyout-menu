@@ -1,11 +1,11 @@
 import React from 'react';
 import { recentPosts } from '../../utility/data';
 
-const SaleFeatured = () => {
+export default function SaleFeatured({ classes, startIndex, endIntex }) {
     return (
-        <div className='col-span-1 grid gap-8 grid-cols-3'>
+        <div className={classes}>
             {/* <div className='grid grid-cols-2'></div> */}
-            {recentPosts.map((post) => (
+            {recentPosts.slice(startIndex, endIntex).map((post) => (
                 <a
                     key={post.id}
                     href='#'
@@ -20,13 +20,9 @@ const SaleFeatured = () => {
                             {post.title}
                         </p>
                         <p className=' mb-5 font-semibold  capitalize text-white'>
-                            {/* {post.title}  */} Upto 60% Off
+                            Upto 60% Off
                         </p>
-                        {/* <p className=' mb-5 font-normal leading-tight tracking-tight capitalize text-xs text-white'>
-                        <span className='border mr-2 px-1.5 py-0.5 rounded-sm'>
-                            {post.category.title}
-                        </span>
-                    </p> */}
+
                         <button
                             type='button'
                             className='inline-flex items-center px-2.5 py-1.5 text-xs font-medium text-center text-white border border-white rounded-sm hover:bg-white hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700'
@@ -53,6 +49,4 @@ const SaleFeatured = () => {
             ))}
         </div>
     );
-};
-
-export default SaleFeatured;
+}

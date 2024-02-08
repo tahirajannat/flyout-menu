@@ -1,7 +1,12 @@
 import React from 'react';
 import { mainMenuItems, recentPosts } from '../../utility/data';
 
-export default function TemplateTwoFeatured({ classes, selectedId }) {
+export default function TemplateTwoFeatured({
+    classes,
+    selectedId,
+    startIndex,
+    endIntex,
+}) {
     const menuTitle = mainMenuItems.map(
         (item) => item.id == selectedId && item.title
     );
@@ -13,7 +18,7 @@ export default function TemplateTwoFeatured({ classes, selectedId }) {
                     {menuTitle}
                 </h2>
             </div>
-            {recentPosts.map((post) => (
+            {recentPosts.slice(startIndex, endIntex).map((post) => (
                 <div className='col-span-1 mx-auto'>
                     <img
                         className='rounded-sm h-36 object-cover'

@@ -53,7 +53,15 @@ export default function Megamenu() {
 
                 {hoveredMainMenuItem && (
                     <>
-                        {selectedId == 5 ? (
+                        {selectedId == 4 ? (
+                            <TemplateTwo
+                                subMenuItems={mainMenuItems}
+                                isHovered={isSubMenuVisible}
+                                selectedId={selectedId}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                            />
+                        ) : selectedId == 5 ? (
                             <SubMenu
                                 classes={'transition-all duration-300'}
                                 subMenuItems={mainMenuItems}
@@ -62,13 +70,12 @@ export default function Megamenu() {
                                 onMouseLeave={handleMouseLeave}
                                 selectedId={selectedId}
                             />
-                        ) : selectedId == 4 ? (
-                            <SaleTemplate isHovered={isSubMenuVisible} />
                         ) : selectedId == 9 ? (
-                            <TemplateTwo
-                                subMenuItems={mainMenuItems}
+                            <SaleTemplate
                                 isHovered={isSubMenuVisible}
                                 selectedId={selectedId}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
                             />
                         ) : (
                             <SubMenu

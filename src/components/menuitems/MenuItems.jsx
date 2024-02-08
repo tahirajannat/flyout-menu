@@ -12,14 +12,14 @@ export default function MenuItems({ mainMenuItems, selectedId }) {
     // console.log(selectedId);
     return (
         <div className='col-span-3'>
-            <div className='grid grid-cols-3 gap-8 flex-wrap'>
+            <div className='grid grid-cols-2 gap-8 flex-wrap'>
                 <div>
                     <SubMenuColumn
                         classes={'border-r'}
                         mainMenuItems={mainMenuItems}
                         selectedId={selectedId}
                         startIndex={0}
-                        endIntex={3}
+                        endIndex={5}
                     />
                 </div>
                 <div>
@@ -27,18 +27,18 @@ export default function MenuItems({ mainMenuItems, selectedId }) {
                         classes={'border-r'}
                         mainMenuItems={mainMenuItems}
                         selectedId={selectedId}
-                        startIndex={3}
-                        endIntex={6}
+                        startIndex={5}
+                        endIndex={10}
                     />
                 </div>
-                <div>
+                {/* <div>
                     <SubMenuColumn
                         mainMenuItems={mainMenuItems}
                         selectedId={selectedId}
                         startIndex={6}
                         endIntex={10}
                     />
-                </div>
+                </div> */}
             </div>
         </div>
     );
