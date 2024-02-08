@@ -1,11 +1,10 @@
 import React from 'react';
 // import Logo from '../assets/img/logo.png';
 import { recentPosts } from '../../utility/data';
-const MenuFeaturedProduct = () => {
+export default function MenuFeaturedProduct({ startIndex, endIndex, classes }) {
     return (
-        <div className='col-span-1 grid gap-4 grid-cols-1'>
-            {/* <div className='grid grid-cols-2'></div> */}
-            {recentPosts.map((post) => (
+        <div className={`col-span-1 grid gap-4 grid-cols-1 ${classes}`}>
+            {recentPosts.slice(startIndex, endIndex).map((post) => (
                 <div
                     key={post.id}
                     className='bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500'
@@ -57,6 +56,4 @@ const MenuFeaturedProduct = () => {
             ))}
         </div>
     );
-};
-
-export default MenuFeaturedProduct;
+}

@@ -20,7 +20,6 @@ export default function Megamenu() {
 
     const handleMouseEnter = () => {
         setHoveredMainMenuItem(true);
-        handleOnChange();
     };
 
     const handleMouseLeave = () => {
@@ -28,13 +27,12 @@ export default function Megamenu() {
     };
     const [selectedId, setSelectedId] = useState();
 
-    const handleOnChange = (event) => {
-        event.preventDefault();
-        let id = event.target.id;
-        setSelectedId(id);
+    const handleMouseOver = (event) => {
+        setSelectedId(JSON.parse(event.target.dataset.info));
+        // console.log(JSON.parse(event.target.dataset.info));
     };
 
-    console.log('selectedId', selectedId);
+    // console.log('selectedId', selectedId);
 
     return (
         <>
@@ -44,7 +42,7 @@ export default function Megamenu() {
                     parentMenuItems={mainMenuItems}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    onChange={handleOnChange}
+                    onMouseOver={handleMouseOver}
                     selectedId={selectedId}
                     hoveredMainMenuItem={
                         mainMenuItems.length > 0 ? mainMenuItems[0].id : null
@@ -58,7 +56,7 @@ export default function Megamenu() {
                         isHovered={isSubMenuVisible}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
-                        onChange={handleOnChange}
+                        selectedId={selectedId}
                     />
                 )}
             </nav>

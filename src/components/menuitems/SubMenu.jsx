@@ -13,7 +13,7 @@ export default function SubMenu({
     return (
         <>
             <div
-                className={`-mt-1 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10 ${
+                className={`-mt-1 absolute w-full bg-white border border-gray-200 rounded-md shadow-lg z-10 ${
                     isHovered
                         ? 'visible transition-all duration-300'
                         : 'hidden transition-all duration-300'
@@ -26,7 +26,7 @@ export default function SubMenu({
                         mainMenuItems={subMenuItems}
                         selectedId={selectedId}
                     />
-                    <MenuFeaturedProduct />
+                    <MenuFeaturedProduct startIndex={0} endIndex={1} />
                 </div>
             </div>
         </>

@@ -1,4 +1,5 @@
 import WomenDenim from '../assets/img/women-1.jpeg';
+import WomenHeels from '../assets/img/women-2.jpeg';
 export const mainMenuItems = [
     {
         id: 1,
@@ -19,6 +20,7 @@ export const mainMenuItems = [
             {
                 id: 1,
                 category: 'Ethnic wear',
+                href: '#',
                 subcategories: [
                     {
                         title: 'Ethnic 1 Piece',
@@ -177,7 +179,68 @@ export const mainMenuItems = [
     {
         id: 5,
         title: 'men',
-        submenu: [],
+        submenu: [
+            {
+                id: 2,
+                category: 'Pants',
+                // subcategories: [
+                //     {
+                //         title: 'Jeans',
+                //         href: '#',
+                //     },
+                //     {
+                //         title: 'Twill Pants',
+                //         href: '#',
+                //     },
+                //     {
+                //         title: 'Palazzo',
+                //         href: '#',
+                //     },
+                //     {
+                //         title: 'Plain Bottoms',
+                //         href: '#',
+                //     },
+                //     {
+                //         title: 'Embroidered Bottoms',
+                //         href: '#',
+                //     },
+                //     {
+                //         title: 'Leggings',
+                //         href: '#',
+                //     },
+                // ],
+            },
+            {
+                id: 4,
+                category: 'Shirts',
+                // subcategories: [],
+            },
+            {
+                id: 4,
+                category: 'T-shirts',
+                // subcategories: [],
+            },
+            {
+                id: 4,
+                category: 'Tie',
+                // subcategories: [],
+            },
+            {
+                id: 4,
+                category: 'formal',
+                // subcategories: [],
+            },
+            {
+                id: 4,
+                category: 'Informal',
+                // subcategories: [],
+            },
+            {
+                id: 4,
+                category: 'personal care',
+                // subcategories: [],
+            },
+        ],
     },
 
     {
@@ -191,6 +254,65 @@ export const mainMenuItems = [
     {
         id: 8,
         title: 'Home Decor',
+    },
+    {
+        id: 9,
+        title: 'Winter Sale',
+        submenu: [
+            {
+                id: 1,
+                category: ' Sale Women',
+                subcategories: [
+                    {
+                        title: 'upto 60% off',
+                        href: '#',
+                    },
+                    {
+                        title: 'Tops & blouses',
+                        href: '#',
+                    },
+                    {
+                        title: 'Dresses',
+                        href: '#',
+                    },
+                    {
+                        title: 'Jump Suit',
+                        href: '#',
+                    },
+                    {
+                        title: 'Shoes',
+                        href: '#',
+                    },
+                ],
+            },
+            {
+                id: 1,
+                category: ' Sale Men',
+                subcategories: [
+                    {
+                        title: 'upto 60% off',
+                        href: '#',
+                    },
+                    {
+                        title: 'T-Shirts',
+                        href: '#',
+                    },
+                    {
+                        title: 'Shirts',
+                        href: '#',
+                    },
+
+                    {
+                        title: 'Shoes',
+                        href: '#',
+                    },
+                    {
+                        title: 'Trousers',
+                        href: '#',
+                    },
+                ],
+            },
+        ],
     },
 ];
 export const recentPosts = [
@@ -207,17 +329,17 @@ export const recentPosts = [
         description:
             'Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.',
     },
-    // {
-    //     id: 2,
-    //     title: "Women's classic Heels - Lemon",
-    //     href: '#',
-    //     date: 'Mar 10, 2023',
-    //     datetime: '2023-03-10',
-    //     category: { title: 'footwear', href: '#' },
-    //     imageUrl: WomenHeels, // Corrected the path here
-    //     description:
-    //         'Optio cum necessitatibus dolor voluptatum provident commodi et.',
-    // },
+    {
+        id: 2,
+        title: "Women's classic Heels - Lemon",
+        href: '#',
+        date: 'Mar 10, 2023',
+        datetime: '2023-03-10',
+        category: { title: 'footwear', href: '#' },
+        imageUrl: WomenHeels, // Corrected the path here
+        description:
+            'Optio cum necessitatibus dolor voluptatum provident commodi et.',
+    },
 ];
 // export const womenCategories = [
 //     {

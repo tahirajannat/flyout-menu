@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Logo from '../../assets/img/logo.png';
 
 export default function MainMenuItems({
@@ -8,14 +8,14 @@ export default function MainMenuItems({
     onclick,
     hoveredMainMenuItem,
     menuItemStyle,
+    onMouseOver,
 }) {
-    const [selectedId, setSelectedId] = useState();
+    // const [selectedId, setSelectedId] = useState();
 
-    const handleonChange = (event) => {
-        event.preventDefault();
-        let id = event.target.id;
-        setSelectedId(id);
-    };
+    // const handleMouseOver = (event) => {
+    //     setSelectedId(JSON.parse(event.target.dataset.info));
+    //     console.log(JSON.parse(event.target.dataset.info));
+    // };
 
     return (
         <div className='border-gray-200 border-b'>
@@ -52,13 +52,12 @@ export default function MainMenuItems({
                 <div className='items-center justify-between hidden w-full md:flex md:w-auto md:order-1'>
                     <ul className='flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse'>
                         {parentMenuItems.map((item) => (
-                            <li key={item.id} onMouseEnter={handleonChange}>
+                            <li key={item.id}>
                                 {item.submenu ? (
                                     <button
-                                        // key={item.title}
                                         className={`flex items-center justify-between w-full py-2 px-3  text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:px-0  md:py-6 md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent dark:border-gray-700 font-medium transition-all duration-300 hover:font-semibold ${
                                             hoveredMainMenuItem === item.id
-                                                ? 'hidden'
+                                                ? 'hidden transition-all duration-300'
                                                 : ''
                                         } ${menuItemStyle}`}
                                         onClick={() => onclick(item.id)}
@@ -68,6 +67,8 @@ export default function MainMenuItems({
                                         onMouseLeave={() =>
                                             onMouseLeave(item.id)
                                         }
+                                        onMouseOver={onMouseOver}
+                                        data-info={JSON.stringify(item.id)}
                                     >
                                         {item.title}
                                         <svg
@@ -93,6 +94,8 @@ export default function MainMenuItems({
                                         // key={item.title}
                                         className={`flex items-center justify-between w-full py-2 px-3  text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:px-0  md:py-6 md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent dark:border-gray-700 font-medium transition-all duration-300 hover:font-semibold ${menuItemStyle}`}
                                         onClick={onclick}
+                                        onMouseOver={onMouseOver}
+                                        data-info={JSON.stringify(item.id)}
                                     >
                                         {item.title}
                                     </button>
