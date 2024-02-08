@@ -340,6 +340,19 @@ export const recentPosts = [
         description:
             'Optio cum necessitatibus dolor voluptatum provident commodi et.',
     },
+    {
+        id: 3,
+        title: "Women's Ethnic Denim Jacket",
+        href: '#',
+        date: 'Mar 16, 2023',
+        price: 199,
+        sellPrice: 149,
+        datetime: '2023-03-16',
+        category: { title: 'clothing', href: '#' },
+        imageUrl: WomenDenim,
+        description:
+            'Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.',
+    },
 ];
 // export const womenCategories = [
 //     {

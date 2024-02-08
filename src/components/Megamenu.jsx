@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { mainMenuItems } from '../utility/data';
 import MainMenuItems from './menuitems/MainMenuItems';
 import SubMenu from './menuitems/SubMenu';
+import SaleTemplate from './templates/SaleTemplate';
 
 export default function Megamenu() {
     const [hoveredMainMenuItem, setHoveredMainMenuItem] = useState(false);
@@ -50,14 +51,20 @@ export default function Megamenu() {
                 />
 
                 {hoveredMainMenuItem && (
-                    <SubMenu
-                        classes={'transition-all duration-300'}
-                        subMenuItems={mainMenuItems}
-                        isHovered={isSubMenuVisible}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                        selectedId={selectedId}
-                    />
+                    <>
+                        {selectedId == 4 ? (
+                            <SubMenu
+                                classes={'transition-all duration-300'}
+                                subMenuItems={mainMenuItems}
+                                isHovered={isSubMenuVisible}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                                selectedId={selectedId}
+                            />
+                        ) : (
+                            <SaleTemplate isHovered={isSubMenuVisible} />
+                        )}
+                    </>
                 )}
             </nav>
         </>

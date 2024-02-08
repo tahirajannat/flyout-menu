@@ -3,12 +3,24 @@ import { mainMenuItems } from '../../utility/data';
 import SubMenuColumn from '../menuitems/SubMenuColumn';
 import SaleFeatured from './SaleFeatured';
 
-export default function SaleTemplate() {
+export default function SaleTemplate({
+    isHovered,
+    onMouseEnter,
+    onMouseLeave,
+    classes,
+}) {
     return (
-        <div className='mx-auto max-w-screen-xl'>
-            <div className='w-full grid grid-cols-12'>
-                <div className='col-span-7'>
-                    <div className='grid grid-cols-2 pr-4'>
+        <div
+            // className='absolute mx-auto max-w-screen-xl'
+            className={`-mt-1 absolute w-full bg-white border border-gray-200 rounded-md shadow-lg z-10 ${
+                isHovered
+                    ? 'visible transition-all duration-300'
+                    : 'hidden transition-all duration-300'
+            } ${classes}`}
+        >
+            <div className='w-full grid grid-cols-10 gap-8 max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-600 md:px-6'>
+                <div className='col-span-4'>
+                    <div className='grid grid-cols-2 gap-8 pr-4'>
                         <div>
                             <SubMenuColumn
                                 classes={'border-r'}
@@ -20,7 +32,7 @@ export default function SaleTemplate() {
                         </div>
                         <div>
                             <SubMenuColumn
-                                classes={'border-r pl-8'}
+                                classes={' '}
                                 mainMenuItems={mainMenuItems}
                                 selectedId={9}
                                 startIndex={1}
@@ -36,7 +48,7 @@ export default function SaleTemplate() {
                         /> */}
                     </div>
                 </div>
-                <div className='col-span-5'>
+                <div className='col-span-6'>
                     <SaleFeatured
                     // classes={' grid grid-cols-2'}
                     // startIndex={0}
